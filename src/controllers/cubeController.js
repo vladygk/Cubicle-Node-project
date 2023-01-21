@@ -8,7 +8,7 @@ exports.getCreateCube = (req, res) => {
 exports.postCreateCube = (req, res) => {
   const cube = new Cube(req.body);
 
-  Cube.save(cube);
+  cube.save();
 
   res.redirect("/");
 };

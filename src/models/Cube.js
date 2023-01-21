@@ -10,14 +10,14 @@ class Cube {
     this.difficultyLevel = difficultyLevel;
   }
 
-  static save(cube) {
+   save() {
     let prevID = db.cubes[db.cubes.length - 1];
     if (db.cubes[0] === undefined) {
       prevID = 0;
     }
-    cube.id = prevID + 1;
-    console.log(this.id);
-    db.cubes.push(cube);
+    this.id = prevID + 1;
+    
+    db.cubes.push(this);
     const jsonData = JSON.stringify(db, null, 2);
     fs.writeFileSync(path.resolve(__dirname, "../db.json"), jsonData);
   }
